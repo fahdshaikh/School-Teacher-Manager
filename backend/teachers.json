@@ -1,0 +1,212 @@
+[
+    {
+        "id": 1,
+        "first_name": "Harlen",
+        "last_name": "Guerrieri",
+        "gender": "Male",
+        "age": 35,
+        "email": "hguerrieri0@slideshare.net",
+        "img_url": "https://randomuser.me/api/portraits/men/1.jpg",
+        "classes": [
+            {
+                "grade": 9,
+                "section": "A",
+                "subject": "HTML"
+            },
+            {
+                "grade": 9,
+                "section": "B",
+                "subject": "JavaScript"
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "first_name": "Naoma",
+        "last_name": "Gaven",
+        "gender": "Female",
+        "age": 47,
+        "email": "ngaven1@illinois.edu",
+        "img_url": "https://randomuser.me/api/portraits/women/2.jpg",
+        "classes": [
+            {
+                "grade": 9,
+                "section": "A",
+                "subject": "Bootstrap"
+            },
+            {
+                "grade": 9,
+                "section": "B",
+                "subject": "DS Algo"
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "first_name": "Chariot",
+        "last_name": "Radloff",
+        "gender": "Male",
+        "age": 29,
+        "email": "cradloff2@list-manage.com",
+        "img_url": "https://randomuser.me/api/portraits/men/3.jpg",
+        "classes": [
+            {
+                "grade": 9,
+                "section": "C",
+                "subject": "Bootstrap"
+            },
+            {
+                "grade": 9,
+                "section": "D",
+                "subject": "DS Algo"
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "first_name": "Harmonia",
+        "last_name": "Barnaclough",
+        "gender": "Female",
+        "age": 40,
+        "email": "hbarnaclough3@admin.ch",
+        "img_url": "https://randomuser.me/api/portraits/women/4.jpg",
+        "classes": [
+            {
+                "grade": 9,
+                "section": "C",
+                "subject": "HTML"
+            },
+            {
+                "grade": 9,
+                "section": "D",
+                "subject": "JavaScript"
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "first_name": "Far",
+        "last_name": "Parkins",
+        "gender": "Male",
+        "age": 43,
+        "email": "fparkins4@nbcnews.com",
+        "img_url": "https://randomuser.me/api/portraits/men/5.jpg",
+        "classes": [
+            {
+                "grade": 10,
+                "section": "A",
+                "subject": "React"
+            },
+            {
+                "grade": 10,
+                "section": "B",
+                "subject": "Redux"
+            }
+        ]
+    },
+    {
+        "id": 6,
+        "first_name": "Blakeley",
+        "last_name": "Harbisher",
+        "gender": "Female",
+        "age": 50,
+        "email": "bharbisher5@hatena.ne.jp",
+        "img_url": "https://randomuser.me/api/portraits/women/6.jpg",
+        "classes": [
+            {
+                "grade": 10,
+                "section": "A",
+                "subject": "Redux"
+            },
+            {
+                "grade": 10,
+                "section": "B",
+                "subject": "React"
+            }
+        ]
+    },
+    {
+        "id": 7,
+        "first_name": "Kailey",
+        "last_name": "Ianitti",
+        "gender": "Female",
+        "age": 30,
+        "email": "kianitti6@globo.com",
+        "img_url": "https://randomuser.me/api/portraits/women/7.jpg",
+        "classes": [
+            {
+                "grade": 10,
+                "section": "A",
+                "subject": "DS Algo"
+            },
+            {
+                "grade": 10,
+                "section": "B",
+                "subject": "Soft Skills"
+            }
+        ]
+    },
+    {
+        "id": 8,
+        "first_name": "Freddie",
+        "last_name": "Elderidge",
+        "gender": "Female",
+        "age": 27,
+        "email": "felderidge7@hostgator.com",
+        "img_url": "https://randomuser.me/api/portraits/women/8.jpg",
+        "classes": [
+            {
+                "grade": 10,
+                "section": "C",
+                "subject": "React"
+            },
+            {
+                "grade": 10,
+                "section": "D",
+                "subject": "Redux"
+            }
+        ]
+    },
+    {
+        "id": 9,
+        "first_name": "Nelia",
+        "last_name": "Jinkin",
+        "gender": "Female",
+        "age": 45,
+        "email": "njinkin8@cornell.edu",
+        "img_url": "https://randomuser.me/api/portraits/women/9.jpg",
+        "classes": [
+            {
+                "grade": 10,
+                "section": "C",
+                "subject": "Redux"
+            },
+            {
+                "grade": 10,
+                "section": "D",
+                "subject": "React"
+            }
+        ]
+    },
+    {
+        "id": 10,
+        "first_name": "Palm",
+        "last_name": "Lismer",
+        "gender": "Male",
+        "age": 35,
+        "email": "plismer9@tumblr.com",
+        "img_url": "https://randomuser.me/api/portraits/men/10.jpg",
+        "classes": [
+            {
+                "grade": 10,
+                "section": "C",
+                "subject": "DS Algo"
+            },
+            {
+                "grade": 10,
+                "section": "D",
+                "subject": "Soft Skills"
+            }
+        ]
+    }
+]

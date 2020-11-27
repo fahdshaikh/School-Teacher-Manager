@@ -43,7 +43,7 @@ const Details = () => {
 
     const getData = () => {
         axios
-            .get(`http://localhost:5000/api/teacher/${name[0]}`)
+            .get(`http://localhost:5000/api/teacher/search/${name[0]}`)
             .then((res) => {
                 console.log(res.data[0].classes);
                 setData(res.data[0]);

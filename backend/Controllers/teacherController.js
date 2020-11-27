@@ -1,17 +1,5 @@
 const Teacher = require('../Models/Teacher');
 
-const getAllTeachers = (req, res) => {
-    console.log('get Teachers: ', req.body);
-    Teacher.find()
-        .then((teachers) => {
-            res.json(teachers);
-            console.log('get teachers total: ', teachers.length);
-        })
-        .catch((err) => {
-            res.status(400).json({ message: `Error: ${err}` });
-        });
-};
-
 const addTeachers = async (req, res) => {
     const payload = new Teacher({
         id: req.body.id,
@@ -34,10 +22,11 @@ const addTeachers = async (req, res) => {
     }
 };
 
-const paginatedTeacherResults = async (req, res) => {
+const getTeachersData = async (req, res) => {
     const page = Number.parseInt(req.query.page) || 1;
     const limit = Number.parseInt(req.query.limit) || 4;
-
+    const gender = req.query.gender || false;
+    const search = req.query.search || false;
     const startIndex = (page - 1) * limit;
     const endIndex = page * limit;
 
@@ -57,12 +46,78 @@ const paginatedTeacherResults = async (req, res) => {
         };
     }
 
+    let regex = new RegExp(search, 'i');
+    // results.total = await Teacher.countDocuments();
+    if (search) {
+        if (gender === 'Male') {
+            results.current = await Teacher.find({
+                first_name: regex,
+                gender: 'Male',
+            })
+                .limit(limit)
+                .skip(startIndex)
+                .exec();
+
+            results.total = await Teacher.find({
+                first_name: regex,
+                gender: 'Male',
+            }).countDocuments();
+        } else if (gender === 'Female') {
+            results.current = await Teacher.find({
+                first_name: regex,
+                gender: 'Female',
+            })
+                .limit(limit)
+                .skip(startIndex)
+                .exec();
+
+            results.total = await Teacher.find({
+                first_name: regex,
+                gender: 'Female',
+            }).countDocuments();
+        } else {
+            results.current = await Teacher.find({
+                first_name: regex,
+            })
+                .limit(limit)
+                .skip(startIndex)
+                .exec();
+
+            results.total = await Teacher.find({
+                first_name: regex,
+            }).countDocuments();
+        }
+    } else {
+        if (gender === 'Male') {
+            results.current = await Teacher.find({ gender: 'Male' })
+                .limit(limit)
+                .skip(startIndex)
+                .exec();
+
+            results.total = await Teacher.find({
+                gender: 'Male',
+            }).countDocuments();
+        } else if (gender === 'Female') {
+            results.current = await Teacher.find({ gender: 'Female' })
+                .limit(limit)
+                .skip(startIndex)
+                .exec();
+
+            results.total = await Teacher.find({
+                gender: 'Female',
+            }).countDocuments();
+        } else {
+            results.current = await Teacher.find()
+                .limit(limit)
+                .skip(startIndex)
+                .exec();
+
+            results.total = await Teacher.countDocuments();
+        }
+    }
+    // }
+
     try {
-        results.current = await Teacher.find()
-            .limit(limit)
-            .skip(startIndex)
-            .exec();
-        // res.pagination = results;
         res.json(results);
     } catch (e) {
         res.status(500).json({ message: e.message });
@@ -71,7 +126,10 @@ const paginatedTeacherResults = async (req, res) => {
 
 const getTeacher = async (req, res) => {
     const first_name = req.params.first_name;
-    Teacher.find({ first_name })
+    let regex = new RegExp(first_name, 'i');
+    // Teacher.find({ first_name: `/${first_name}/i` }, 'first_name');
+    Teacher.find({ first_name: regex })
+        .exec()
         .then((teacher) => {
             res.json(teacher);
         })
@@ -81,8 +139,7 @@ const getTeacher = async (req, res) => {
 };
 
 module.exports = {
-    getAllTeachers,
     addTeachers,
     getTeacher,
-    paginatedTeacherResults,
+    getTeachersData,
 };

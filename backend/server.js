@@ -2,8 +2,6 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const dotenv = require('dotenv');
-// const Teacher = require('./Models/Teacher');
-// const teachersJSON = require('./teachers.json');
 const Routes = require('./Routes/Teachers');
 
 dotenv.config();

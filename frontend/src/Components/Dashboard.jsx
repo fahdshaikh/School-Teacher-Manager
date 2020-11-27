@@ -32,36 +32,37 @@ const Dashboard = () => {
     let [page, setPage] = useState(1);
     let [limit] = useState(4);
     let [total, setTotal] = useState(0);
+    let [gender, setGender] = useState('');
+    let [search, setSearch] = useState('');
 
-    const getInitialData = () => {
-        axios
-            .get('http://localhost:5000/api/teacher')
-            .then((res) => {
-                // setData(res.data);
-                console.log(res.data.length);
-                setTotal(res.data.length);
-            })
-            .catch((err) => console.log(err));
-    };
-
-    useEffect(() => {
-        getInitialData();
-    }, [data]);
+    // useEffect(() => {
+    //     getData();
+    // }, [data]);
 
     const getData = () => {
-        let url = 'http://localhost:5000/api/teacher/pagination';
+        console.log(search);
+        let url = 'http://localhost:5000/api/teacher';
 
         axios
-            .get(url, { params: { page: page, limit: limit } })
+            .get(url, {
+                params: {
+                    page: page,
+                    limit: limit,
+                    gender: gender,
+                    search: search,
+                },
+            })
             .then((res) => {
                 setData(res.data.current);
+                setTotal(res.data.total);
             })
             .catch((err) => console.log(err));
     };
 
     useEffect(() => {
         getData();
-    }, [page, limit]);
+    }, [page, limit, gender]);
+    // }, []);
     return (
         <>
             <Navbar />
@@ -73,12 +74,16 @@ const Dashboard = () => {
                     >
                         <div className='col'>
                             <div className='row '>
-                                <div
-                                    className='col-2 p-2'
+                                <button
+                                    className='col-2 p-2 btn'
                                     style={{ backgroundColor: '#e9ecef' }}
+                                    onClick={() => {
+                                        setGender('');
+                                        getData();
+                                    }}
                                 >
                                     <b> Search</b>
-                                </div>
+                                </button>
                                 <div
                                     className='col text-left input-group input-group-md'
                                     style={{ backgroundColor: 'white' }}
@@ -90,6 +95,9 @@ const Dashboard = () => {
                                         placeholder='Name'
                                         style={{
                                             border: '1px solid white',
+                                        }}
+                                        onChange={(e) => {
+                                            setSearch(e.target.value);
                                         }}
                                     />
                                 </div>
@@ -104,12 +112,20 @@ const Dashboard = () => {
                                 <button
                                     type='button'
                                     className='btn col btn-sm btn-info mr-1'
+                                    onClick={() => {
+                                        setPage(1);
+                                        setGender('Male');
+                                    }}
                                 >
                                     Male
                                 </button>
                                 <button
                                     type='button'
                                     className='btn col mr-2 btn-sm btn-info'
+                                    onClick={() => {
+                                        setPage(1);
+                                        setGender('Female');
+                                    }}
                                 >
                                     Female
                                 </button>
